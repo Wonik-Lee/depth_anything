@@ -1,5 +1,7 @@
 import numpy as np
+import torch
 from pathlib import Path
+from PIL import Image
 from teacher_load import teacher
 from tqdm import tqdm
 
@@ -8,8 +10,8 @@ current_dir = Path(__file__).resolve().parent
 DATA_ROOT = current_dir / "dataset"
 
 IMG_DIR = DATA_ROOT / "val_large"
-OUT_DIR = DATA_ROOT / "pseudo_labels"
-
+OUT_ROOT = DATA_ROOT / "pseudo_labels"
+SAVE_DTYPE = np.float32
 img_paths = sorted(IMG_DIR.rglob("*.jpg"))
 #print("Found images:", len(img_paths))
 
